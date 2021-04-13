@@ -46,22 +46,24 @@ class PendaftaranController extends Controller
             'b_ing' => $request->b_ing,
             'mtk' => $request->mtk,
             'ipa' => $request->ipa,
+
+            'id_status_calon_siswa' => 1,
         ]);
 
-        return redirect()->route('siswa.dashboard');
+        return redirect()->route('siswa.dashboard')->with('status','berhasil menyimpan data calon siswa');
     }
 
     public function edit($id){
         $JenisKelamin = JenisKelamin::all();
         $Jurusan = Jurusan::all();
 
-        $Data = CalonSiswa::where('id_user',$id)->first();
+        $Data = CalonSiswa::find($id);
 
         return view('siswa.pendaftaran.edit',compact('Data','JenisKelamin', 'Jurusan'));
     }
 
     public function update($id, Request $request){
-        $Data = CalonSiswa::where('id_user',$id)->first();
+        $Data = CalonSiswa::find($id);
 
         if ($request->foto){
             Storage::delete('public/foto_calon_siswa/'.$Data->foto);
@@ -89,10 +91,10 @@ class PendaftaranController extends Controller
 
         $Data->save();
 
-        return redirect()->route('siswa.dashboard');
+        return redirect()->route('siswa.dashboard')->with('status','berhasil mengubah data calon siswa');
     }
 
-    public function delete($id){
+    public function destroy($id){
         CalonSiswa::destroy($id);
 
         return back();

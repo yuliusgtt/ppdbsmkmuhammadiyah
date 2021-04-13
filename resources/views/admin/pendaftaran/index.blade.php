@@ -46,7 +46,13 @@
                                         <td>{{$calon->user->email}}</td>
                                         <td>{{$calon->jurusan->jurusan}}</td>
                                         <td class="text-center">
-                                            <a href="{{route('admin.pendaftaran.show',[$calon->id_user])}}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                                            <a href="{{route('admin.pendaftaran.show',[$calon->nomor_pendaftaran])}}" class="btn btn-sm btn-info"><i class="fa fa-info-circle"></i></a>
+                                            <a href="{{route('admin.pendaftaran.edit',[$calon->nomor_pendaftaran])}}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                                            <form action="{{ route('admin.pendaftaran.destroy', [$calon->nomor_pendaftaran])}}" method="POST" onsubmit="return confirm('Hapus {{$calon->nomor_pendaftaran}}?');" style="display: inline-block;">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

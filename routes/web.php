@@ -13,11 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','WelcomeController@index');
+Route::get('/','WelcomeController@index')->name('welcome');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/cek','CekStatusController@cek')->name('cek');
+
+//cetak kartu pdf
+Route::get('/kartu_pdf/{id}','CetakPDFController@cetak_pdf')->name('cetak_pdf');
 
 Route::group([
     'prefix'=>'admin',
@@ -39,7 +44,8 @@ Route::group([
         // Jurusan
         Route::resource('jurusan','Admin\JurusanController');
 
-
+        // Status Calon Siswa
+        Route::resource('statuscalonsiswa', 'Admin\StatusCalonSiswaController');
 });
 
 

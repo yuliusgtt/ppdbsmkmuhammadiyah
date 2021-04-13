@@ -14,11 +14,27 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="row">
-                @if($Data)
+            @if($Data)
+                <div class="row">
                     <div class="col-6">
                         <div class="card">
-                            <div class="card-header bg-success">
+                            <div class="card-body">
+                                <h2>Nomor Pendaftaran : {{$Data->nomor_pendaftaran}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2>STATUS : {{$Data->status->status}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-header">
                                 <h3 class="card-title">Data anda</h3>
                             </div>
                             <div class="card-body">
@@ -34,7 +50,7 @@
 
                                 <div class="form-group row">
                                     <label for="email" class="col-form-label">Email</label>
-                                    <input type="eamil" class="form-control text-uppercase" id="email" value="{{$Data->user->email}}" name="email" readonly>
+                                    <input type="email" class="form-control text-uppercase" id="email" value="{{$Data->user->email}}" name="email" readonly>
                                 </div>
 
                                 <div class="form-group row">
@@ -74,14 +90,12 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="card">
-                            <div class="card-header bg-success">
+                            <div class="card-header">
                                 <h3 class="card-title">Foto</h3>
                             </div>
                             <div class="card-body text-center">
@@ -90,7 +104,7 @@
                         </div>
 
                         <div class="card">
-                            <div class="card-header bg-success">
+                            <div class="card-header">
                                 <h3 class="card-title">Data Nilai Ujian Nasional</h3>
                             </div>
                             <div class="card-body">
@@ -117,16 +131,27 @@
                             </div>
                         </div>
                     </div>
-            </div>
-            <div class="row">
-                <div class="card-body">
-                    <a href="{{route('siswa.pendaftaran.edit',[Auth::id()])}}" class="btn btn-block btn-warning">
-                        <i class="fa fa-database"></i>
-                        Edit
-                    </a>
                 </div>
-
-                @else
+                <div class="row">
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <a href="{{route('cetak_pdf',[$Data->nomor_pendaftaran])}}" class="btn btn-block btn-info">
+                                    <i class="fa fa-download"></i>
+                                    Download Kartu Pendaftaran
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="{{route('siswa.pendaftaran.edit',[$Data->nomor_pendaftaran])}}" class="btn btn-block btn-warning">
+                                    <i class="fa fa-database"></i>
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <div class="row">
                     <div class="col-6">
                         <div class="card">
                             <div class="card-header">
@@ -142,8 +167,8 @@
                             </div>
                         </div>
                     </div>
-                @endif
-            </div>
+                </div>
+            @endif
         </div>
     </section>
 @endsection

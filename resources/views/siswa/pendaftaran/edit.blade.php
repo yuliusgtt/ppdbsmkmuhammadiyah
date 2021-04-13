@@ -16,7 +16,7 @@
         <div class="container-fluid">
 
             @if($Data)
-                <form class="col-12" action="{{route('siswa.pendaftaran.update',[Auth::id()])}}" method="post" enctype="multipart/form-data">
+                <form class="col-12" action="{{route('siswa.pendaftaran.update',[$Data->nomor_pendaftaran])}}" method="post" enctype="multipart/form-data">
                     @csrf
                     {{ method_field('PUT') }}
                     <div class="row">
@@ -97,7 +97,7 @@
                                     <h3 class="card-title">Foto</h3>
                                 </div>
                                 <div class="card-body text-center">
-                                    <img src="{{asset('storage/foto_calon_siswa/'.$Data->foto)}}" class="img-thumbnail" id="preview" alt="preview" style="width: 200px; height: 300px;">
+                                    <img src="{{asset('storage/foto_calon_siswa/'.$Data->foto)}}" class="img-thumbnail" id="preview" alt="preview" style="width: 106px; height: 135px;">
                                     <br>
                                     <br>
                                     <div class="input-group">
@@ -122,6 +122,9 @@
                                     <div class="form-group">
                                         <label for="tahun_lulus" class="col-form-label">Tahun Lulus</label>
                                         <input type="text" class="form-control text-uppercase" id="tahun_lulus" value="{{$Data->tahun_lulus}}" name="tahun_lulus" required autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="text-danger">* Apabila Nilai Belum Keluar, isikan 0</p>
                                     </div>
                                     <div class="form-group">
                                         <label for="bhs_ind" class="col-form-label">Bahasa Indonesia</label>

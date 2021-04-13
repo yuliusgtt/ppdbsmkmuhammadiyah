@@ -29,24 +29,10 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <a class="nav-link">SMK MUHAMMADIYAH 1 PURBALINGGA</a>
             </li>
         </ul>
 
-        <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
@@ -81,7 +67,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{route('admin.dashboard')}}" class="brand-link">
-            <img src="{{ asset('adminlte')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="{{ asset('adminlte')}}/dist/img/SMKMUH1.png" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">Admin - PPDB</span>
         </a>
 
@@ -93,7 +79,7 @@
                     <img src="{{ asset('adminlte')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Admin</a>
+                    <a href="{{route('admin.dashboard')}}" class="d-block">Admin</a>
                 </div>
             </div>
 
@@ -114,16 +100,6 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-
-                    <li class="nav-item">
-                        <a href="{{route('admin.pendaftaran.index')}}" class="nav-link {{Request::is('admin/pendaftaran*')?'active':''}}">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p>
-                                Pendaftaran
-                            </p>
-                        </a>
-                    </li>
-
                     <li class="nav-item">
                         <a href="{{route('admin.jeniskelamin.index')}}" class="nav-link {{Request::is('admin/jeniskelamin*')?'active':''}}">
                             <i class="nav-icon fas fa-venus-mars"></i>
@@ -138,6 +114,24 @@
                             <i class="nav-icon fas fa-chalkboard-teacher"></i>
                             <p>
                                 Jurusan
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{route('admin.statuscalonsiswa.index')}}" class="nav-link {{Request::is('admin/statuscalonsiswa*')?'active':''}}">
+                            <i class="nav-icon fas fa-user-check"></i>
+                            <p>
+                                Status Calon Siswa
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{route('admin.pendaftaran.index')}}" class="nav-link {{Request::is('admin/pendaftaran*')?'active':''}}">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Pendaftaran
                             </p>
                         </a>
                     </li>
@@ -165,10 +159,11 @@
     <!-- /.content-wrapper -->
 
     <footer class="main-footer">
+        <strong>SMK MUHAMMADIYAH 1 PURBALINGGA</strong>
         <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.1.0-rc
+            Jalan Let. Jend. S. Parman Po Box 125
+            Telp./Fax. (0281) 895768 Purbalingga
         </div>
-        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->

@@ -1,100 +1,74 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.welc')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+@section('content')
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <div class="text-center">
+                        <h1>SELAMAT DATANG DI WEBSITE PENERIMAAN PESERTA DIDIK BARU</h1>
+                        <h1>TAHUN AJARAN 2021/2022</h1>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            CEK STATUS CALON SISWA
+                        </div>
+                        <form action="{{route('cek')}}" method="post">
+                            @csrf
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-border text-center {{ $errors->has('nomor_pendaftaran') ? 'is-invalid' : '' }}" id="nomor_pendaftaran" placeholder="nomor pendaftaran" name="nomor_pendaftaran" required>
+                                    @if($errors->has('nomor_pendaftaran'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('nomor_pendaftaran') }}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i> CEK</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-2">
+
+                </div>
+
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            @guest
+                            SUDAH MENDAFTAR?, SILAHKAN LOGIN
+                            <br><br>
+                            <a class="btn btn-outline-primary" href="{{ route('login') }}"><i class="fa fa-user"></i> LOGIN</a>
+                            <hr>
+                            @if (Route::has('register'))
+                                INGIN MENDAFTAR?, SILAHKAN BUAT AKUN
+                                <br><br>
+                                <a class="btn btn-primary" href="{{ route('register') }}"><i class="fa fa-user-plus"></i> DAFTAR</a>
+                            @endif
+                            @else
+                                ANDA TELAH LOGIN
+                                <br><br>
+                                <a class="btn btn-primary" href="{{ route('siswa.dashboard') }}"><i class="fa fa-database"></i> DASHBOARD</a>
+                            @endguest
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+@endsection

@@ -50,6 +50,6 @@ class PanitiaController extends Controller
 
         $Data->save();
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.dashboard')->with('status','berhasil mengubah data admin');
     }
 }

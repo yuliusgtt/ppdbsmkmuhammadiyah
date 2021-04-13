@@ -4,10 +4,8 @@
 
     <section class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Tambah Data Panitia</h1>
-                </div>
+            <div class="row justify-content-center">
+                <h1>Edit Data Panitia</h1>
             </div>
         </div>
     </section>
@@ -79,7 +77,7 @@
                             </div>
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-default float-right"><i class="fa fa-plus"></i>Tambah Data</button>
+                                <button type="submit" class="btn btn-default float-right"><i class="fa fa-save"></i> Simpan Data</button>
                             </div>
                         </form>
                     </div>

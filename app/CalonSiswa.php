@@ -30,6 +30,7 @@ class CalonSiswa extends Model
         'b_ing',
         'mtk',
         'ipa',
+        'id_status_calon_siswa'
     ];
 
     public function user(){
@@ -44,5 +45,8 @@ class CalonSiswa extends Model
         return $this->belongsTo(Jurusan::class,'id_jurusan', 'id');
     }
 
+    public function status(){
+        return $this->belongsTo(StatusCalonSiswa::class,'id_status_calon_siswa','id');
+    }
 
 }

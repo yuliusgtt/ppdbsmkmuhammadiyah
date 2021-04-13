@@ -14,27 +14,24 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <div class="card card-info">
-                        <div class="card-header">
-                            <h3 class="card-title">Data Calon Siswa</h3>
-                        </div>
-
-                        <form class="form" action="{{route('siswa.pendaftaran.store')}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-
+            <form class="form" action="{{route('siswa.pendaftaran.store')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <div class="card card-info">
+                            <div class="card-header">
+                                <h3 class="card-title">Data Calon Siswa</h3>
+                            </div>
                             <div class="card-body">
-
                                 <div class="row justify-content-center">
-                                    <img class="img-fluid" src="{{asset('adminlte')}}/dist/img/Default-photo.png" id="preview" alt="preview" style="width: 200px; height: 300px;">
+                                    <img class="img-fluid" src="{{asset('adminlte')}}/dist/img/Default-photo.png" id="preview" alt="preview" style="width: 106px; height: 135px;">
                                 </div>
                                 <div class="form-group">
-                                    <label for="foto" class="col-form-label">FOTO 3x4</label>
+                                    <label for="foto" class="col-form-label">FOTO 4x6</label>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" accept="image/*" class="custom-file-input" id="foto" name="foto" required onchange="showFile()">
-                                            <label for="foto" class="custom-file-label">FOTO 3x4</label>
+                                            <label for="foto" class="custom-file-label">pilih foto</label>
                                             @if($errors->has('foto'))
                                                 <div class="invalid-feedback">
                                                     {{ $errors->first('foto') }}
@@ -143,16 +140,17 @@
                                         </div>
                                     @endif
                                 </div>
-
                             </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-6">
-                    <div class="card card-info">
-                        <div class="card-header">
-                            <h3 class="card-title">Data Nilai Ujian Nasional</h3>
-                        </div>
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <div class="card card-info">
+                            <div class="card-header">
+                                <h3 class="card-title">Data Nilai Ujian Nasional</h3>
+                            </div>
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="tahun_lulus" class="col-form-label">Tahun Lulus</label>
@@ -163,7 +161,9 @@
                                         </div>
                                     @endif
                                 </div>
-
+                                <div class="form-group">
+                                    <p class="text-danger">* Apabila Nilai Belum Keluar, isikan 0</p>
+                                </div>
                                 <div class="form-group">
                                     <label for="b-ind" class="col-form-label">Nilai Bahasa Indonesia</label>
                                     <input type="number" max="100" class="form-control text-uppercase {{ $errors->has('b-ind') ? 'is-invalid' : '' }}" id="b-ind" value="0" name="b_ind" required>
@@ -204,20 +204,20 @@
                                     @endif
                                 </div>
                             </div>
-
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="card card-info">
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-success float-right"><i class="fa fa-plus"></i>Tambah Data</button>
                         </div>
-                        </form>
                     </div>
                 </div>
 
-            </div>
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <div class="card card-info">
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-success float-right"><i class="fa fa-plus"></i> Tambah Data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 @endsection

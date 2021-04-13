@@ -16,6 +16,23 @@
             <div class="row">
                 <div class="col-6">
                     <div class="card">
+                        <div class="card-body">
+                            <h2>Nomor Pendaftaran : {{$Data->nomor_pendaftaran}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>STATUS : {{$Data->status->status}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
                         <div class="card-header ">
                             <h3 class="card-title">Data Siswa</h3>
                         </div>
@@ -117,10 +134,20 @@
 
             <div class="row">
                 <div class="card-body">
-                    <a href="{{route('admin.pendaftaran.cetak',[$Data->id_user])}}" class="btn btn-block btn-warning">
-                        <i class="fa fa-download"></i>
-                        Download Kartu Pendaftaran
-                    </a>
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="{{route('admin.pendaftaran.edit',[$Data->nomor_pendaftaran])}}" class="btn btn-block btn-warning">
+                                <i class="fa fa-edit"></i>
+                                EDIT
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="{{route('cetak_pdf',[$Data->nomor_pendaftaran])}}" class="btn btn-block btn-info">
+                                <i class="fa fa-download"></i>
+                                Download Kartu Pendaftaran
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

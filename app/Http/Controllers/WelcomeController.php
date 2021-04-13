@@ -16,6 +16,4 @@ class WelcomeController extends Controller
 
         return redirect('admin');
     }
-
-
 }

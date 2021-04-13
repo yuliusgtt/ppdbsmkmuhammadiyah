@@ -33,7 +33,7 @@ class JurusanController extends Controller
             'kode' => strtoupper($request->kode)
         ]);
 
-        return redirect()->route('admin.jurusan.store');
+        return redirect()->route('admin.jurusan.index')->with('status','berhasil menambah data jurusan : '.$request->jurusan);
     }
 
     public function edit($id){
@@ -51,13 +51,13 @@ class JurusanController extends Controller
 
         $Data->save();
 
-        return redirect()->route('admin.jurusan.index');
+        return redirect()->route('admin.jurusan.index')->with('status','berhasil mengubah data jurusan');
     }
 
     public function destroy($id){
         Jurusan::destroy($id);
 
-        return back();
+        return redirect()->route('admin.jurusan.index')->with('status','berhasil menghapus data jurusan');
     }
 
 }
