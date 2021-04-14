@@ -23,7 +23,7 @@
 
 <body>
 
-<table align="center" border="1" cellpadding="1"  style="">
+<table align="center" border="0" cellpadding="1"  style="">
     <tbody>
     <tr>
         <td width="170px" style="font-size: 8pt;">
@@ -44,8 +44,7 @@
     <tr style="border-bottom: 1pt solid black;">
         <td>
             <div align="center">
-                test<br>
-                test
+
             </div>
         </td>
         <td colspan="2">
@@ -58,8 +57,7 @@
             </div>
         </td>
         <td style="align-content: center;">
-            test<br>
-            test
+
         </td>
     </tr>
 
@@ -103,12 +101,12 @@
 
     <tr>
         <td>Nilai UN</td>
-        <td>: test</td>
+        <td>: Bhs. IND: {{$Data->b_ind}}, Bhs. ING :{{$Data->b_ing}}, IPA :{{$Data->ipa}}, MTK:{{$Data->mtk}}</td>
     </tr>
 
     <tr>
         <td>Jumlah Nilai UN</td>
-        <td>: test</td>
+        <td>: <?php echo $Data->b_ind+$Data->b_ing+$Data->ipa+$Data->mtk; ?></td>
     </tr>
 
     <tr>
@@ -119,7 +117,7 @@
         <td></td>
         <td>
             <div style="width:106px; height:135px; border:1px solid #000; text-align: center">
-                Foto 4x6
+                <img src="={{ public_path("/storage/foto_calon_siswa/".$Data->foto) }}"  id="preview" alt="preview" style="width: 200px; height: 300px;">
             </div>
         </td>
         <td colspan="2">
