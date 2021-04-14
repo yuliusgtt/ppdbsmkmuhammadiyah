@@ -31,13 +31,13 @@ class CreateCalonSiswaTable extends Migration
             $table->integer('b_ing');
             $table->integer('mtk');
             $table->integer('ipa');
-            $table->unsignedBigInteger('status_calon_siswa_id');
+            $table->unsignedBigInteger('id_status_calon_siswa');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_jenis_kelamin')->references('id')->on('jenis_kelamin')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_jurusan')->references('id')->on('jurusan');
-            $table->foreign('status_calon_siswa_id')->references('id')->on('status_calon_siswa')->onDelete('cascade');
+            $table->foreign('id_status_calon_siswa')->references('id')->on('status_calon_siswa')->onDelete('cascade');
         });
     }
 
