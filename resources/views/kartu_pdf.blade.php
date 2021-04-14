@@ -117,7 +117,7 @@
         <td></td>
         <td>
             <div style="width:106px; height:135px; border:1px solid #000; text-align: center">
-                <img src="={{ public_path("/storage/foto_calon_siswa/".$Data->foto) }}"  id="preview" alt="preview" style="width: 200px; height: 300px;">
+                foto 4x6
             </div>
         </td>
         <td colspan="2">
